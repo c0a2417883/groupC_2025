@@ -1,0 +1,15 @@
+<root>
+    <BehaviorTree ID="ball_catch">
+    <Sequence name="main">
+        <Watch name="watch_ball"/>
+        <GetObjFront name="get_ball_front"/>
+        <ReachObj name="reach_ball" />
+        <Pick name="pick_ball"/>
+        <Shift name="shift" target="[0.175]"/>
+        <Sleep name="sleep" time="[3]"/>
+        <GoToPose name="return_box" target="[0, 0, 0]"/>
+        <Place name="place_ball"/>
+        <ArmHome name="arm_home"/>
+    </Sequence>
+    </BehaviorTree>
+</root>
