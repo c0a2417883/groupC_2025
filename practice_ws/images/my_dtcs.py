@@ -41,9 +41,32 @@ def d_ball(img):
     lower = np.array([0, 220, 170]) # 色相, 彩度, 明度 の下限
     upper = np.array([10, 240, 255]) # 色相, 彩度, 明度 の上限
 
+
     # 指定範囲に入る画素を抽出（白が該当部分）
     mask = inRangeWrap(hsv_img, lower, upper)
+    # cv2.imwrite("rootpractice_ws/images/imgs/d_ball_mask.png", mask)
     
+    try:
+        x, y, s = calc_centroid(mask)
+        print(f"{s=}")
+        return x, y
+    except TypeError:
+        return None
+
+def d_ball_2(img):
+    # 画像の読み込み
+    draw_img = img.copy() # 元データを書き換えないようにコピーを作成
+    # HSVに変換（色指定はRGBよりHSVの方が扱いやすい）
+    hsv_img = cv2.cvtColor(draw_img, cv2.COLOR_BGR2HSV)
+
+    # BGR空間での抽出範囲
+    ## ボール
+    lower = np.array([110, 100, 100]) # 色相, 彩度, 明度 の下限
+    upper = np.array([160, 255, 250]) # 色相, 彩度, 明度 の上限
+
+    # 指定範囲に入る画素を抽出（白が該当部分）
+    mask = inRangeWrap(hsv_img, lower, upper)
+
     try:
         x, y, s = calc_centroid(mask)
         print(f"{s=}")
