@@ -1,0 +1,11 @@
+<root>
+    <BehaviorTree ID="ball_catch">
+    <Sequence name="main">
+        <Pick name="pick_ball"/>
+        <Shift name="lift_up" target="[1, 90, 0]"/>
+        <GoToPose name="move_to_place" target="[X, Y, Z]"/>
+        <Place name="place_ball"/>
+        <ArmHome name="arm_home"/>
+    </Sequence>
+    </BehaviorTree>
+</root>
