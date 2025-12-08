@@ -1,0 +1,18 @@
+<root>
+    <BehaviorTree ID="room2try">
+    <Sequence name="main">
+        <SetDetector name="set ball_detector" func_name="my_dtcs.d_ball" id="None"/>
+        <Watch name="watch_ball"/>
+        <GetObjFront name="get_ball_front"/>
+        <GoToPose name="move_to_place_loc"/>
+        <ReachObj name="reach_ball" />
+        <Pick name="pick"/>
+        <ObjectLocation name="object_location"/>
+        <Shift name="lift_up" target="[1, 90, 0]"/>
+        <GoToPose name="move_to_place" target="[0, 0, 0]"/>
+        <Place name="place_ball"/>
+        <ArmHome name="arm_home"/>
+    
+    </Sequence>
+    </BehaviorTree>
+</root>
