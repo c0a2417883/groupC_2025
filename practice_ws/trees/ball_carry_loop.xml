@@ -1,0 +1,73 @@
+<root>
+    <BehaviorTree ID="ball_carry">
+        <Repeat name="repeat_loop" num_success="-1">
+            <Sequence name="one_cycle_action">
+                <Sequence name="priority_select">
+                    <SetDestination name="set_search_pos" value="[(0.0, 0.0, 0.0)]"/>
+                    <GoToPose name="move_to_search_pos"/>
+                    <!-- Selector は「どれか一つ成功すればOK」なので、「オレンジボール」が失敗しても、次に「何もしない成功タスク」があれば、そこで成功扱いになって次に進めます。 -->
+                    <Selector name="orange_try_or_skip">
+                    
+                        <Sequence name="case_orange">
+                            <SetDetector name="set_orange" func_name="my_dtcs.d_ball" id="None"/>
+                            
+                            <Watch name="watch_orange"/>
+                            
+                            <GetObjFront name="get_ball_front"/>
+                            <GoToPose name="move_to_catch_loc"/>
+                            <ReachObj name="reach_ball" />
+                            <Open name="open"/>
+                            <Pick name="pick"/>
+                            <ObjectLocation name="object_location"/>
+                            <Shift name="shift" target="[0.175]"/>
+                            <Sleep name="sleep" time="[3]"/>
+                            <Fit2 name="fit2" distance="[0.175]"/>
+                            <Close name="close"/>
+                            <ArmHome name="home"/>
+                            <!-- ↓ボールがない安全な場所に移動 -->
+                            <!-- <SetDestination name="set_safe_point" value="[(0.0, -0.5, 90)]"/> 
+                            <GoToPose name="move_to_safe_point"/> -->
+                            <!-- ↑ボールがない安全な場所に移動 -->
+                            <SetDestination name="set_target" value="[(-1, 0, 180)]"/>
+                            <GoToPose name="move_to_place_loc"/>
+                            <Pick name="pick_place"/>
+                            <!-- <ArmAngle name="arm_angle2" j1="[0.0]" j2="[1.75]" j3="[1.4]" j4="[0.0]" j5="[-1.6]" j6="[0.0]"/> -->
+
+                            <!-- <Sleep name="sleep_2" time="[2]"/> -->
+                            <Open name="open"/>
+                            <Sleep name="sleep_3" time="[2]"/>
+                            <Arm0 name="arm0"/>
+                        </Sequence>
+                        <Sleep name="skip_orange" time="[0.0]"/>
+                    </Selector>
+
+                    <Sequence name="case_purple">
+                        <SetDestination name="set_search_pos" value="[(0.0, 0.0, 360)]"/>
+                        <GoToPose name="move_to_search_pos"/>
+                        <SetDetector name="set_purple" func_name="my_dtcs.d_ball_2" id="None"/>
+                        
+                        <Watch name="watch_purple"/>
+                        
+                        <GetObjFront name="get_ball_front"/>
+                        <GoToPose name="move_to_catch_loc"/>
+                        <ReachObj name="reach_ball" />
+                        <Open name="open"/>
+                        <Pick name="pick"/>
+                        <ObjectLocation name="object_location"/>
+                        <Shift name="shift" target="[0.175]"/>
+                        <Sleep name="sleep" time="[3]"/>
+                        <Fit2 name="fit2" distance="[0.175]"/>
+                        <Close name="close"/>
+                        <ArmHome name="home"/>
+                        <SetDestination name="set_target" value="[(-1, -1, 180)]"/>
+                        <GoToPose name="move_to_place_loc"/>
+                        <Pick name="pick_place"/>
+                        <Open name="open"/>
+                        <Sleep name="sleep_2" time="[2]"/>
+                        <Arm0 name="arm0"/>
+                    </Sequence>
+                </Sequence>
+            </Sequence>
+        </Repeat>
+    </BehaviorTree>
+</root>
