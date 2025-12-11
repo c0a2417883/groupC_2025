@@ -1,0 +1,71 @@
+<root>
+    <BehaviorTree ID="ball_carry">
+        <Sequence name="priority_select">
+            
+            <Sequence name="case_red">
+                <SetDetector name="set_red" func_name="my_dtcs.d_ball" id="None"/>
+                
+                <Watch name="watch_red"/>
+                
+                <GetObjFront name="get_ball_front"/>
+                <GoToPose name="move_to_catch_loc"/>
+                <ReachObj name="reach_ball" />
+                <Open name="open"/>
+                <Pick name="pick"/>
+
+                <ObjectLocation name="object_location"/>
+                <Shift name="shift" target="[0.175]"/>
+                <Sleep name="sleep" time="[3]"/>
+                <Fit2 name="fit2" distance="[0.175]"/>
+                <Close name="close"/>
+                <ArmHome name="home"/>
+
+                <!-- ↓ボールがない安全な場所に移動 -->
+                <!-- <SetDestination name="set_safe_point" value="[(0.0, -0.5, 90)]"/> 
+                <GoToPose name="move_to_safe_point"/> -->
+                <!-- ↑ボールがない安全な場所に移動 -->
+
+                <SetDestination name="set_target" value="[(4, 0, 0)]"/>
+                <GoToPose name="move_to_place_loc"/>
+                <Pick name="pick_place"/>
+                <Sleep name="sleep_2" time="[5]"/>
+                <Open name="open"/>
+                <Sleep name="sleep_2" time="[2]"/>
+                <Arm0 name="arm0"/>
+            </Sequence>
+
+            <!-- 赤ボールが見つからないときに実行される -->
+            <!-- <Sequence name="case_blue">
+                <SetDestination name="set_search_pos" value="[(0.0, 0.0, 90)]"/>
+                <GoToPose name="move_to_search_pos"/>
+                <SetDetector name="set_blue" func_name="my_dtcs.d_ball_2" id="None"/>
+                
+                <Watch name="watch_blue"/>
+                
+                <GetObjFront name="get_ball_front"/>
+                <GoToPose name="move_to_catch_loc"/>
+                <ReachObj name="reach_ball" />
+                <Open name="open"/>
+                <Pick name="pick"/>
+                <ObjectLocation name="object_location"/>
+                <Shift name="shift" target="[0.175]"/>
+                <Sleep name="sleep" time="[3]"/>
+                <Fit2 name="fit2" distance="[0.175]"/>
+                <Close name="close"/>
+                <ArmHome name="home"/> -->
+                <!-- ↓ボールがない安全な場所に移動 -->
+                <!-- <SetDestination name="set_safe_point" value="[(-0.5, 0.5, 90)]"/> 
+                <GoToPose name="move_to_safe_point"/> -->
+                <!-- ↑ボールがない安全な場所に移動 -->
+                <!-- <SetDestination name="set_target" value="[(0.5, 0.3, 90)]"/>
+                <GoToPose name="move_to_place_loc"/>
+                <Pick name="pick_place"/>
+                <Sleep name="sleep_2" time="[5]"/>
+                <Open name="open"/>
+                <Sleep name="sleep_2" time="[2]"/>
+                <Arm0 name="arm0"/>
+            </Sequence> -->
+
+        </Sequence>
+    </BehaviorTree>
+</root>
