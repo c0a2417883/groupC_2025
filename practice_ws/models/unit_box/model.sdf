@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="target_area">
+    <static>true</static>   <!-- ← これが重力を無視して固定されるポイント！ -->
+
+    <link name="visual_link">
+
+      <!-- 実質無効化されたコリジョン（なくてもよい） -->
+      <collision name="no_collision">
+        <geometry>
+          <box><size>0 0 0</size></box>
+        </geometry>
+      </collision>
+
+      <!-- 見た目だけの透明赤キューブ -->
+      <visual name="transparent_red_cube">
+        <geometry>
+          <box><size>1 1 1</size></box>
+        </geometry>
+
+        <material>
+          <ambient>1 0 0 0.3</ambient>
+          <diffuse>1 0 0 0.3</diffuse>
+          <specular>0.1 0.1 0.1 0.1</specular>
+        </material>
+
+        <cast_shadows>false</cast_shadows>
+      </visual>
+
+      <!-- 空中に固定される -->
+      <pose>0 0 0.5 0 0 0</pose>
+
+    </link>
+  </model>
+</sdf>

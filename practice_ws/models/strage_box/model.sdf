@@ -1,0 +1,85 @@
+<?xml version="1.0" ?>
+<sdf version="1.7">
+  <model name="strage_box">
+    <static>true</static>
+
+    <link name="box_body">
+
+      <!-- === 前面の壁 === -->
+      <collision name="front_collision">
+        <pose>0 0.245 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.01 0.16</size></box>
+        </geometry>
+      </collision>
+      <visual name="front_visual">
+        <pose>0 0.245 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.01 0.16</size></box>
+        </geometry>
+        <material><ambient>0.7 0.3 0.2 1</ambient></material>
+      </visual>
+
+      <!-- === 背面の壁 === -->
+      <collision name="back_collision">
+        <pose>0 -0.245 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.01 0.16</size></box>
+        </geometry>
+      </collision>
+      <visual name="back_visual">
+        <pose>0 -0.245 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.01 0.16</size></box>
+        </geometry>
+        <material><ambient>0.7 0.3 0.2 1</ambient></material>
+      </visual>
+
+      <!-- === 左の壁 === -->
+      <collision name="left_collision">
+        <pose>-0.245 0 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.01 0.5 0.16</size></box>
+        </geometry>
+      </collision>
+      <visual name="left_visual">
+        <pose>-0.245 0 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.01 0.5 0.16</size></box>
+        </geometry>
+        <material><ambient>0.7 0.3 0.2 1</ambient></material>
+      </visual>
+
+      <!-- === 右の壁 === -->
+      <collision name="right_collision">
+        <pose>0.245 0 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.01 0.5 0.16</size></box>
+        </geometry>
+      </collision>
+      <visual name="right_visual">
+        <pose>0.245 0 0.08 0 0 0</pose>
+        <geometry>
+          <box><size>0.01 0.5 0.16</size></box>
+        </geometry>
+        <material><ambient>0.7 0.3 0.2 1</ambient></material>
+      </visual>
+
+      <!-- === 底面 === -->
+      <collision name="bottom_collision">
+        <pose>0 0 0.005 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.5 0.01</size></box>
+        </geometry>
+      </collision>
+      <visual name="bottom_visual">
+        <pose>0 0 0.005 0 0 0</pose>
+        <geometry>
+          <box><size>0.5 0.5 0.01</size></box>
+        </geometry>
+        <material><ambient>0.7 0.3 0.2 1</ambient></material>
+      </visual>
+
+    </link>
+  </model>
+</sdf>
