@@ -1,7 +1,7 @@
 <root>
     <BehaviorTree ID="test_arm_angle">
     <Sequence name="main">
-        <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
+        <ArmAngle name="arm_angle" j1="[0]" j2="[50]" j3="[30]" j4="[0]" j5="[40]" j6="[0]"/>
     </Sequence>
     </BehaviorTree>
 </root>

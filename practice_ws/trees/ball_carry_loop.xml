@@ -30,15 +30,15 @@
                         <SetDestination name="set_target" value="[(-1, 0, 180)]"/>
                         <GoToPose name="move_to_place_loc"/>
                         <!-- <Pick name="pick_place"/> -->
-                        <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
+                        <ArmAngle name="arm_angle" j1="[0]" j2="[50]" j3="[30]" j4="[0]" j5="[40]" j6="[0]"/>
                         <Open name="open"/>
                         <Sleep name="sleep_3" time="[2]"/>
                         <Arm0 name="arm0"/>
                         <!-- <SetDestination name="set_safe_point" value="[(-0.5, 0, 180)]"/> 
                         <GoToPose name="move_to_safe_point"/> -->
                     </Sequence>
-                    <SetDestination name="set_safe_point" value="[(-0.5, 0, 180)]"/> 
-                    <GoToPose name="move_to_safe_point"/>
+                    <!-- <SetDestination name="set_safe_point" value="[(-0.5, 0, 180)]"/> 
+                    <GoToPose name="move_to_safe_point"/> -->
                     <Sleep name="skip_orange" time="[0.0]"/>
                 </Selector>
 
@@ -63,7 +63,7 @@
                     <SetDestination name="set_target" value="[(-1, -1, 180)]"/>
                     <GoToPose name="move_to_place_loc"/>
                     <!-- <Pick name="pick_place"/> -->
-                    <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
+                    <ArmAngle name="arm_angle" j1="[0]" j2="[50]" j3="[30]" j4="[0]" j5="[40]" j6="[0]"/>
                     <Open name="open"/>
                     <Sleep name="sleep_2" time="[2]"/>
                     <Arm0 name="arm0"/>
@@ -71,8 +71,8 @@
                     <GoToPose name="move_to_safe_point"/> -->
 
                 </Sequence>
-                <SetDestination name="set_safe_point" value="[(-0.5, -0.5, 180)]"/> 
-                <GoToPose name="move_to_safe_point"/>
+                <!-- <SetDestination name="set_safe_point" value="[(-0.5, -0.5, 180)]"/> 
+                <GoToPose name="move_to_safe_point"/> -->
             </Sequence>
         </Repeat>
     </BehaviorTree>
