@@ -2614,5 +2614,7 @@
       <allow_auto_disable>1</allow_auto_disable>
       <pose>-3.9798 0.022356 0 0 -0 0</pose>
     </model>
+    <plugin name="gazebo_link_attacher" filename="libgazebo_link_attacher.so"/>
+    <plugin name="gazebo_ros_state" filename="libgazebo_ros_state.so"/>
   </world>
 </sdf>

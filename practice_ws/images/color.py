@@ -60,8 +60,11 @@ def p_ball(img):
 
     # BGR空間での抽出範囲
     ## ボール
-    p_lower = np.array([199, 0, 0]) # 色相, 彩度, 明度 の下限
-    p_upper = np.array([220, 50, 162]) # 色相, 彩度, 明度 の上限
+    # p_lower = np.array([199, 0, 0]) # 色相, 彩度, 明度 の下限
+    # p_upper = np.array([220, 50, 162]) # 色相, 彩度, 明度 の上限
+
+    p_lower = np.array([110, 100, 100]) # 色相, 彩度, 明度 の下限
+    p_upper = np.array([160, 255, 250]) # 色相, 彩度, 明度 の上限
 
     # 指定範囲に入る画素を抽出（白が該当部分）
     p_mask = inRangeWrap(p_hsv_img, p_lower, p_upper)
