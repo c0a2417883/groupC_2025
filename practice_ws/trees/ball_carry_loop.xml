@@ -2,12 +2,12 @@
     <BehaviorTree ID="ball_carry">
         <Repeat name="repeat_loop" num_success="-1">
             <Sequence name="main_loop">
-                
+
                 <Selector name="orange_1_check">
                     <Sequence name="case_orange_1">
                         <SetDestination name="pos1" value="[(1.0, 0.0, 80)]"/>
                         <GoToPose name="move_to_pos1"/>
-                        <SetDetector name="set_orange" func_name="my_dtcs.d_ball_2" id="None"/>
+                        <SetDetector name="set_orange" func_name="my_dtcs.d_ball" id="None"/>
                         <Watch name="watch_orange"/>
                         <GetObjFront name="get_ball_front"/>
                         <GoToPose name="move_to_catch_loc"/>
@@ -20,20 +20,45 @@
                         <Fit2 name="fit2" distance="[0.175]"/>
                         <Close name="close"/>
                         <ArmHome name="home"/>
-                        <SetDestination name="set_target" value="[(-5.2, 1.5, 180)]"/>
+                        <SetDestination name="set_target" value="[(-5.0, 1.5, 180)]"/>
                         <GoToPose name="move_to_box"/>
-                        <Sleep name="sleep" time="[40]"/> <!-- ここでmini_walk 200をする -->
+                        <Sleep name="sleep" time="[40]"/> <!-- ここでmini_walk 300をする -->
                         <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
                         <Open name="open"/>
-                        <Sleep name="sleep_3" time="[40]"/> <!-- ここでmini_walk -250をする -->
+                        <Sleep name="sleep_3" time="[60]"/> <!-- ここでmini_walk -350をする -->
                         <Arm0 name="arm0"/>
                         <Sleep name="sleep_4" time="[3]"/>
                     </Sequence>
-                    <Sleep name="skip" time="[0.0]"/> </Selector>
+                    <Sleep name="skip" time="[0.0]"/>
+                </Selector>
+
+                <Selector name="purple_1_check">
+                    <Sequence name="case_purple_1">
+                        <SetDestination name="pos3" value="[(-1.0, 0.5, 180)]"/>
+                        <GoToPose name="move_to_pos3"/>
+                        <SetDetector name="set_purple" func_name="my_dtcs.d_ball_2" id="None"/>
+                        <Watch name="watch_purple"/>
+                        <GetObjFront name="get_ball_front"/>
+                        <GoToPose name="move_to_catch_loc"/>
+                        <ReachObj name="reach_ball" />
+                        <Open name="open"/><Pick name="pick"/><ObjectLocation name="object_location"/>
+                        <Shift name="shift" target="[0.175]"/><Sleep name="sleep" time="[3]"/>
+                        <Fit2 name="fit2" distance="[0.175]"/><Close name="close"/><ArmHome name="home"/>
+                        <SetDestination name="set_target" value="[(5.2, -1.5, 180)]"/>
+                        <GoToPose name="move_to_place_loc"/>
+                        <Sleep name="sleep" time="[60]"/><!-- ここでmini_walk 300をする -->
+                        <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
+                        <Open name="open"/>
+                        <Sleep name="sleep_3" time="[40]"/>
+                        <Arm0 name="arm0"/>
+                    </Sequence>
+                    <Sleep name="skip" time="[0.0]"/>
+                </Selector>
+
 
                 <Selector name="orange_2_check">
                     <Sequence name="case_orange_2">
-                        <SetDestination name="pos2" value="[(0.0, 0, 220)]"/>
+                        <SetDestination name="pos2" value="[(-2.0, -1.0, 200)]"/>
                         <GoToPose name="move_to_pos2"/>
                         <SetDetector name="set_orange" func_name="my_dtcs.d_ball" id="None"/>
                         <Watch name="watch_orange"/>
@@ -48,37 +73,17 @@
                         <Fit2 name="fit2" distance="[0.175]"/>
                         <Close name="close"/>
                         <ArmHome name="home"/>
-                        <SetDestination name="set_target" value="[(-5.2, 1.5, 180)]"/>
+                        <SetDestination name="set_target" value="[(-5.0, 1.5, 180)]"/>
                         <GoToPose name="move_to_place_loc"/>
-                        <Sleep name="sleep" time="[30]"/>
+                        <Sleep name="sleep" time="[60]"/><!-- ここでmini_walk 300をする -->
                         <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
                         <Open name="open"/>
-                        <Sleep name="sleep_3" time="[30]"/>
+                        <Sleep name="sleep_3" time="[60]"/><!-- ここでmini_walk -350をする -->
                         <Arm0 name="arm0"/>
                     </Sequence>
                     <Sleep name="skip" time="[0.0]"/>
                 </Selector>
 
-                <Selector name="purple_1_check">
-                    <Sequence name="case_purple_1">
-                        <SetDestination name="pos3" value="[(-1.0, 1.0, 90)]"/>  <!-- ボールが壁と近いとカメラがバグってエラー -->
-                        <GoToPose name="move_to_pos3"/>
-                        <SetDetector name="set_purple" func_name="my_dtcs.d_ball_2" id="None"/>
-                        <Watch name="watch_purple"/>
-                        <GetObjFront name="get_ball_front"/>
-                        <GoToPose name="move_to_catch_loc"/>
-                        <ReachObj name="reach_ball" />
-                        <Open name="open"/><Pick name="pick"/><ObjectLocation name="object_location"/>
-                        <Shift name="shift" target="[0.175]"/><Sleep name="sleep" time="[3]"/>
-                        <Fit2 name="fit2" distance="[0.175]"/><Close name="close"/><ArmHome name="home"/>
-                        <SetDestination name="set_target" value="[(-5.2, -1.5, 180)]"/>
-                        <GoToPose name="move_to_place_loc"/>
-                        <Sleep name="sleep" time="[30]"/>
-                        <ArmAngle name="arm_angle" j1="[0]" j2="[0]" j3="[50]" j4="[0]" j5="[40]" j6="[0]"/>
-                        <Open name="open"/><Sleep name="sleep_3" time="[2]"/><Arm0 name="arm0"/>
-                    </Sequence>
-                    <Sleep name="skip" time="[0.0]"/>
-                </Selector>
 
             </Sequence>
         </Repeat>
