@@ -1991,10 +1991,10 @@
           </material>
         </visual>
         <collision name='right_collision'>
-          <pose>0.245 0 0.08 0 -0 0</pose>
+          <pose>0.245 0 0.04 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.01 0.5 0.16</size>
+              <size>0.01 0.5 0.08</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2012,10 +2012,10 @@
           </surface>
         </collision>
         <visual name='right_visual'>
-          <pose>0.245 0 0.08 0 -0 0</pose>
+          <pose>0.245 0 0.04 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.01 0.5 0.16</size>
+              <size>0.01 0.5 0.08</size>
             </box>
           </geometry>
           <material>
@@ -2160,10 +2160,10 @@
           </material>
         </visual>
         <collision name='right_collision'>
-          <pose>0.245 0 0.08 0 -0 0</pose>
+          <pose>0.245 0 0.04 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.01 0.5 0.16</size>
+              <size>0.01 0.5 0.08</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -2181,10 +2181,10 @@
           </surface>
         </collision>
         <visual name='right_visual'>
-          <pose>0.245 0 0.08 0 -0 0</pose>
+          <pose>0.245 0 0.04 0 -0 0</pose>
           <geometry>
             <box>
-              <size>0.01 0.5 0.16</size>
+              <size>0.01 0.5 0.08</size>
             </box>
           </geometry>
           <material>
@@ -2311,10 +2311,10 @@
         </link>
       </model>
       <model name='p_ball_0'>
-        <pose>-3.9798 0.022356 0.0325 0 -0 0</pose>
+        <pose>-3.0 -0.582178 0.0325 0 -0 0</pose>
         <scale>1 1 1</scale>
         <link name='ball'>
-          <pose>-3.9798 0.022356 0.0325 0 -0 0</pose>
+          <pose>-3.0 -0.582178 0.0325 0 -0 0</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
